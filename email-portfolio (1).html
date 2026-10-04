@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Email marketing portfolio: sample flows, campaigns, and a deliverability plan for regulated eCommerce. Spec work for a fictional brand.">
+<title>Antonette Juaban | Email marketing portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F8F9FB;--card:#FFFFFF;--ink:#14171C;--muted:#5B6270;--line:rgba(20,23,28,.13);--accent:#2F54EB;--on-ink:#F8F9FB;
+  --stage:#12151B;--stage-2:#1A1E26;--stage-ink:#F1F3F6;--stage-muted:#A5ACBA;--stage-line:rgba(255,255,255,.13);
+  --ease:cubic-bezier(.2,.8,.2,1);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1013;--card:#171A20;--ink:#F1F3F6;--muted:#9AA2B1;--line:rgba(255,255,255,.13);--accent:#8CA2FF;--on-ink:#0E1013;
+    --stage:#171B22;--stage-2:#1F242D;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1013;--card:#171A20;--ink:#F1F3F6;--muted:#9AA2B1;--line:rgba(255,255,255,.13);--accent:#8CA2FF;--on-ink:#0E1013;
+  --stage:#171B22;--stage-2:#1F242D;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);background:var(--bg);-webkit-text-size-adjust:100%}
+body{font-family:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;font-size:16px;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-align:left}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{width:min(1180px,92%);margin:auto}
+.serif{font-family:"Newsreader",Georgia,"Times New Roman",serif}
+h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:500;letter-spacing:-.02em;line-height:1.05}
+h2{font-size:clamp(34px,4.6vw,56px)}
+.kicker{font-size:14px;font-weight:500;color:var(--accent);margin-bottom:12px}
+.lead{font-size:18px;color:var(--muted);max-width:60ch}
+
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.who{font-family:"Newsreader",Georgia,serif;font-size:21px;font-weight:500;letter-spacing:-.01em}
+.who small{font-family:"Instrument Sans",sans-serif;font-size:14px;color:var(--muted);margin-left:10px;font-weight:400}
+.nav-links{display:flex;gap:26px;font-size:15px;align-items:center}
+.nav-links a{color:var(--muted);transition:color .25s ease}
+.nav-links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;font-size:15px;font-weight:500;border:1px solid var(--ink);background:var(--ink);color:var(--on-ink);border-radius:6px;transition:transform .3s var(--ease),background .3s ease,color .3s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--on-ink)}
+.nav .btn{padding:9px 16px;font-size:14px}
+
+.hero{padding:96px 0 110px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);border:1px solid var(--line);padding:7px 14px;border-radius:999px;margin-bottom:28px;background:var(--card)}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--accent);display:block}
+h1{font-size:clamp(46px,6.4vw,88px);letter-spacing:-.03em;line-height:1;margin-bottom:26px}
+.hero .lead{margin-bottom:34px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.stack{position:relative;height:430px;max-width:470px;width:100%;margin-left:auto}
+.mini{position:absolute;width:min(330px,86%);padding:20px 22px;background:var(--card);border:1px solid var(--line);border-radius:10px;transition:transform .7s var(--ease)}
+.mini:nth-child(1){top:0;left:8%;transform:rotate(-3.5deg)}
+.mini:nth-child(2){top:128px;left:24%;transform:rotate(2deg)}
+.mini:nth-child(3){top:256px;left:4%;transform:rotate(-1.2deg)}
+.stack:hover .mini:nth-child(1){transform:translate(-10px,-6px) rotate(-1deg)}
+.stack:hover .mini:nth-child(2){transform:translate(10px,0) rotate(0)}
+.stack:hover .mini:nth-child(3){transform:translate(-10px,8px) rotate(0)}
+.mini:hover,.mini:focus-visible{border-color:var(--accent)}
+.mini-top{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:10px}
+.mini-top b{color:var(--ink);font-weight:500}
+.mini h3{font-size:24px;line-height:1.15;margin-bottom:8px}
+.mini p{font-size:14px;color:var(--muted);line-height:1.5}
+
+.stage{background:var(--stage);color:var(--stage-ink);padding:100px 0}
+.stage .kicker{color:var(--accent)}
+.stage .lead{color:var(--stage-muted)}
+.stage-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:38px;flex-wrap:wrap}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.tab{padding:11px 18px;border:1px solid var(--stage-line);border-radius:999px;font-size:15px;color:var(--stage-muted);transition:background .3s ease,color .3s ease,border-color .3s ease}
+.tab small{margin-left:8px;opacity:.7;font-size:13px}
+.tab:hover{color:var(--stage-ink);border-color:rgba(255,255,255,.35)}
+.tab[aria-selected="true"]{background:var(--stage-ink);color:var(--stage);border-color:var(--stage-ink)}
+.viewer{display:grid;grid-template-columns:350px 1fr;gap:34px;align-items:start}
+.flow-info{font-size:14px;color:var(--stage-muted);margin-bottom:14px;padding:0 4px}
+.inbox{border:1px solid var(--stage-line);border-radius:10px;background:var(--stage-2);overflow:hidden}
+.row{display:flex;gap:12px;width:100%;padding:16px 18px;border-bottom:1px solid var(--stage-line);transition:background .25s ease}
+.row:last-child{border-bottom:0}
+.row:hover{background:rgba(255,255,255,.04)}
+.row[aria-current="true"]{background:rgba(140,162,255,.16)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);margin-top:8px;flex:none}
+.row-main{display:grid;gap:3px;min-width:0}
+.row-top{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--stage-muted)}
+.row-top b{color:var(--stage-ink);font-weight:500}
+.row-subj{font-weight:500;font-size:15px;line-height:1.35}
+.row-prev{font-size:14px;color:var(--stage-muted);line-height:1.4}
+.tools{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.meta{display:grid;gap:4px;font-size:14px;color:var(--stage-muted)}
+.meta span{color:var(--stage-ink)}
+.seg{display:flex;border:1px solid var(--stage-line);border-radius:8px;overflow:hidden}
+.seg button{padding:8px 14px;font-size:14px;color:var(--stage-muted);transition:background .25s ease,color .25s ease}
+.seg button[aria-pressed="true"]{background:var(--stage-ink);color:var(--stage)}
+.canvas{background:#E7E9EE;border-radius:10px;padding:28px 18px}
+.frame{container-type:inline-size;width:100%;max-width:620px;margin:auto;transition:max-width .6s var(--ease)}
+.frame.phone{max-width:390px}
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.note{background:var(--stage-2);border:1px solid var(--stage-line);border-radius:10px;padding:18px}
+.note h4{font-size:15px;font-weight:600;margin-bottom:6px}
+.note p{font-size:14px;color:var(--stage-muted);line-height:1.55}
+.fade{animation:swap .5s var(--ease)}
+@keyframes swap{from{opacity:.0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.em{background:#fff;color:#1C2330;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.6;border-radius:2px;overflow:hidden}
+.em-top{padding:18px 32px;border-bottom:1px solid #ECEEF2}
+.em-logo{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:700;letter-spacing:.24em;color:#0F1B2D}
+.em-logo i{width:16px;height:16px;border:2px solid #0F1B2D;border-radius:50%;display:block;position:relative}
+.em-logo i::after{content:"";position:absolute;inset:3px;background:#3D6FE0;border-radius:50%}
+.em-hero{background:#0F1B2D;padding:46px 32px 42px;color:#fff}
+.em-eyebrow{display:block;font-size:13px;color:#9FB6E8;margin-bottom:12px}
+.em-hero h3{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:34px;line-height:1.15;letter-spacing:0;color:#fff}
+.em-body{padding:34px 32px 38px}
+.em-body p{margin-bottom:16px;color:#2B3446}
+.em-btn{display:inline-block;background:#0F1B2D;color:#fff!important;padding:14px 28px;border-radius:4px;font-size:15px;font-weight:700;letter-spacing:.02em;margin-top:10px}
+.em-sec{display:block;margin-top:20px;font-size:14px;color:#3D5FB0!important;text-decoration:underline}
+.em-steps{list-style:none;margin:6px 0 20px;display:grid;gap:10px}
+.em-steps li{display:flex;gap:14px;align-items:flex-start;background:#F4F6FA;padding:13px 16px;border-radius:4px;font-size:15px;color:#2B3446}
+.em-steps b{flex:none;width:24px;height:24px;border-radius:50%;background:#0F1B2D;color:#fff;font-size:13px;display:grid;place-items:center}
+.em-card{display:flex;gap:16px;align-items:center;border:1px solid #DFE3EA;border-radius:4px;padding:14px;margin:6px 0 20px}
+.em-img{width:64px;height:64px;flex:none;background:#E3E8F2;border-radius:3px;position:relative}
+.em-img::after{content:"";position:absolute;inset:18px;border:2px solid #9AA9C8;border-radius:50%}
+.em-card b{display:block;font-size:15px;color:#0F1B2D}
+.em-card small{display:block;font-size:13px;color:#6B7487;line-height:1.45}
+.em-foot{background:#F3F4F7;padding:24px 32px;font-size:12px;line-height:1.6;color:#6B7487;border-top:1px solid #E5E8EE}
+.em-foot a{color:#6B7487;text-decoration:underline}
+.em-foot p{margin:0 0 8px;color:#6B7487}
+@container (max-width:480px){
+  .em-top,.em-body,.em-foot{padding-left:20px;padding-right:20px}
+  .em-hero{padding:34px 20px 30px}
+  .em-hero h3{font-size:26px}
+  .em-body{padding-top:26px;padding-bottom:30px}
+  .em-btn{display:block;text-align:center}
+  .em-card{flex-direction:row}
+}
+
+.sec{padding:110px 0}
+.two{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start}
+.sentence{margin-top:30px;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:24px}
+.sentence p{font-family:"Newsreader",Georgia,serif;font-size:21px;line-height:1.45;margin-bottom:16px}
+.sentence small{display:block;font-size:14px;color:var(--muted);margin-bottom:14px}
+.copy{font-size:14px;font-weight:500;border:1px solid var(--line);padding:8px 14px;border-radius:6px;transition:background .25s ease,border-color .25s ease}
+.copy:hover{background:var(--bg);border-color:var(--ink)}
+.steps{list-style:none;counter-reset:s;display:grid}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:16px;padding:22px 0;border-top:1px solid var(--line)}
+.steps li:last-child{border-bottom:1px solid var(--line)}
+.steps li::before{content:counter(s);width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--on-ink);display:grid;place-items:center;font-size:14px;font-weight:500}
+.steps h3{font-size:24px;margin-bottom:4px}
+.steps p{color:var(--muted);font-size:15.5px;max-width:58ch}
+.targets{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:56px}
+.target{border:1px solid var(--line);border-radius:10px;padding:20px;background:var(--card)}
+.target b{display:block;font-family:"Newsreader",Georgia,serif;font-size:23px;font-weight:500;line-height:1.2;margin-bottom:8px}
+.target span{font-size:14px;color:var(--muted);line-height:1.5;display:block}
+
+.alt{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.rewrite{margin-top:44px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg)}
+.rw{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--line)}
+.rw:first-child{border-top:0}
+.rw>div{padding:22px 24px;font-size:15.5px}
+.rw>div+div{border-left:1px solid var(--line)}
+.rw .label{font-size:13px;color:var(--muted);margin-bottom:6px;display:block}
+.rw .avoid{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(120,120,130,.6)}
+.rw .use{font-family:"Newsreader",Georgia,serif;font-size:19px;line-height:1.35}
+.rw-head>div{padding:14px 24px;font-size:13px;color:var(--muted);background:var(--card)}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:70px}
+.checks h3{font-size:30px;margin-bottom:16px}
+.tick{list-style:none;display:grid;gap:12px}
+.tick li{display:grid;grid-template-columns:22px 1fr;gap:12px;font-size:15.5px;color:var(--muted)}
+.tick li::before{content:"";width:18px;height:18px;margin-top:4px;border:1.5px solid var(--accent);border-radius:50%;background:radial-gradient(circle,var(--accent) 0 3px,transparent 3.5px)}
+.tick b{color:var(--ink);font-weight:500}
+.fine{font-size:14px;color:var(--muted);margin-top:28px;max-width:70ch}
+
+.ops{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.op{border:1px solid var(--line);border-radius:10px;padding:26px;background:var(--card)}
+.op h3{font-size:26px;margin-bottom:14px}
+.op .tick li{font-size:15px}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.disclosure{border:1px solid var(--line);border-radius:10px;padding:30px;background:var(--card)}
+.disclosure h3{font-size:28px;margin-bottom:12px}
+.disclosure p{color:var(--muted);font-size:16px;margin-bottom:12px}
+.contact{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+footer{border-top:1px solid var(--line);padding:30px 0 40px;font-size:14px;color:var(--muted)}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.toast{position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);z-index:80;background:var(--ink);color:var(--on-ink);padding:12px 20px;font-size:14px;border-radius:6px;opacity:0;pointer-events:none;transition:opacity .3s ease,transform .45s var(--ease)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:1000px){
+  .viewer{grid-template-columns:1fr}
+  .hero-grid,.two,.about,.checks{grid-template-columns:1fr}
+  .hero-grid{gap:44px}.two,.about,.checks{gap:44px}
+  .stack{margin:0 auto;height:420px}
+  .targets{grid-template-columns:repeat(2,1fr)}
+  .ops{grid-template-columns:1fr}
+  .notes{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .nav-links a:not(.btn){display:none}
+  .who small{display:none}
+  .hero{padding:64px 0 80px}
+  .sec,.stage{padding:76px 0}
+  .rw{grid-template-columns:1fr}
+  .rw>div+div{border-left:0;border-top:1px solid var(--line)}
+  .rw-head{display:none}
+  .canvas{padding:18px 10px}
+  .targets{grid-template-columns:1fr}
+  .stack{height:400px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="who" href="#top">Antonette Juaban<small>Email marketing</small></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#deliverability">Deliverability</a>
+      <a href="#compliance">Compliance</a>
+      <a href="#about">About</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="badge"><i></i>Sample work for a fictional brand. Not client work.</div>
+        <h1>Email programs that stay clear, compliant, and in the inbox.</h1>
+        <p class="lead">Welcome, abandoned-cart, and winback flows, a campaign, and a deliverability plan, all written and laid out for regulated eCommerce.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#work">Read the welcome flow</a>
+          <a class="btn ghost" href="#deliverability">See the deliverability plan</a>
+        </div>
+      </div>
+      <div class="stack" id="stack" aria-label="The three emails in the welcome flow"></div>
+    </div>
+  </section>
+
+  <section class="stage" id="work">
+    <div class="wrap">
+      <div class="stage-head">
+        <div>
+          <div class="kicker">The work</div>
+          <h2>Eight emails, four programs.</h2>
+        </div>
+        <p class="lead">Pick an email to read it the way a subscriber would. Each one has notes on the copy, the compliance choices, and how it would be built.</p>
+      </div>
+      <div class="tabs" id="tabs" role="tablist" aria-label="Email programs"></div>
+      <div class="viewer">
+        <div>
+          <div class="flow-info" id="flowInfo"></div>
+          <div class="inbox" id="inbox"></div>
+        </div>
+        <div>
+          <div class="tools">
+            <div class="meta" id="meta"></div>
+            <div class="seg" role="group" aria-label="Preview width">
+              <button type="button" id="dDesktop" aria-pressed="true">Desktop</button>
+              <button type="button" id="dPhone" aria-pressed="false">Phone</button>
+            </div>
+          </div>
+          <div class="canvas"><div class="frame" id="frame"></div></div>
+          <div class="notes" id="notes"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="deliverability">
+    <div class="wrap">
+      <div class="two">
+        <div>
+          <div class="kicker">Deliverability</div>
+          <h2>A new sending domain, set up in the right order.</h2>
+          <p class="lead" style="margin-top:20px">Good copy only works if the message arrives. This is the order I would work in for a brand-new domain.</p>
+          <div class="sentence">
+            <small>The short version</small>
+            <p id="domainSentence">For a brand-new sending domain, I'd authenticate a dedicated subdomain with SPF, DKIM, and DMARC (starting at p=none with reporting, then tightening once the reports are clean), then warm it up by sending small batches to the most engaged, opted-in subscribers and scaling only while bounces and complaints stay low.</p>
+            <button class="copy" type="button" data-copy="domainSentence">Copy this sentence</button>
+          </div>
+        </div>
+        <ol class="steps">
+          <li><div><h3>Choose the sending domain</h3><p>Use a subdomain such as mail.brand.com, so email reputation stays separate from the main website and everyday business mail.</p></div></li>
+          <li><div><h3>Publish SPF</h3><p>Add the platform's SPF include to DNS. Keep a single SPF record and stay inside the ten-lookup limit.</p></div></li>
+          <li><div><h3>Sign with DKIM</h3><p>Add the platform's DKIM records so each message is signed by the domain and can be verified by the mailbox provider.</p></div></li>
+          <li><div><h3>Publish DMARC</h3><p>Start at p=none with a reporting address. Read the reports, fix any legitimate sender that fails, then move to quarantine and reject.</p></div></li>
+          <li><div><h3>Warm up gradually</h3><p>Begin with the most engaged contacts who clearly opted in, in small batches. Raise volume only while bounces and complaints stay low.</p></div></li>
+          <li><div><h3>Monitor every send</h3><p>Watch bounces, complaints, engagement, and blocklists. Use Google Postmaster Tools once the volume is high enough to show data.</p></div></li>
+        </ol>
+      </div>
+      <div class="targets">
+        <div class="target"><b>Complaints under 0.1%</b><span>A working target, well below the limits mailbox providers set for bulk senders.</span></div>
+        <div class="target"><b>Bounces under 2%</b><span>Hard bounces are suppressed after the first failure and never retried.</span></div>
+        <div class="target"><b>Sunset the silent</b><span>Contacts with no engagement for a set window (for example 90 to 180 days) go through winback, then suppression.</span></div>
+        <div class="target"><b>Backups on a schedule</b><span>Subscribers, segments, and suppression lists exported regularly, so a client never loses their list.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt" id="compliance">
+    <div class="wrap">
+      <div class="kicker">Compliance-first copy</div>
+      <h2>Describe the product. Never promise an effect.</h2>
+      <p class="lead" style="margin-top:20px">In regulated categories, the safest copy is also the clearest. These are the rewrites I make before anything is scheduled.</p>
+      <div class="rewrite">
+        <div class="rw rw-head"><div>Instead of</div><div>Write</div><div>Why</div></div>
+        <div class="rw"><div><span class="label">Instead of</span><span class="avoid">Supports your recovery and performance goals</span></div><div><span class="label">Write</span><span class="use">Specifications and documentation, listed plainly.</span></div><div><span class="label">Why</span>It implies a health or performance outcome.</div></div>
+        <div class="rw"><div><span class="label">Instead of</span><span class="avoid">Proven results. Thousands trust us.</span></div><div><span class="label">Write</span><span class="use">A catalog with documentation linked where available.</span></div><div><span class="label">Why</span>Unsupported claims and testimonials can read as outcome claims.</div></div>
+        <div class="rw"><div><span class="label">Instead of</span><span class="avoid">Only 3 left! Order now before it's gone.</span></div><div><span class="label">Write</span><span class="use">Your cart is saved if you'd like to continue.</span></div><div><span class="label">Why</span>False urgency adds risk and wears down trust.</div></div>
+        <div class="rw"><div><span class="label">Instead of</span><span class="avoid">You're on our list!</span></div><div><span class="label">Write</span><span class="use">You're receiving this because you signed up at our site.</span></div><div><span class="label">Why</span>Consent should be clear and traceable in every email.</div></div>
+      </div>
+      <div class="checks">
+        <div>
+          <h3>Consent and unsubscribe</h3>
+          <ul class="tick">
+            <li><span><b>Express opt-in, with a record.</b> When, where, and what the person agreed to.</span></li>
+            <li><span><b>Clear sender identity.</b> An accurate From name, honest subject lines, and a mailing address in every email.</span></li>
+            <li><span><b>A working unsubscribe in every email.</b> Honoured promptly. CASL and CAN-SPAM both allow up to 10 business days, so I aim for immediately.</span></li>
+            <li><span><b>A clean suppression list.</b> Unsubscribes and hard bounces are never re-imported.</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>How I work in a restricted niche</h3>
+          <ul class="tick">
+            <li><span><b>Start from the client's approved claims.</b> If a line isn't on the list, it doesn't go in.</span></li>
+            <li><span><b>Read the platform's acceptable-use policy first.</b> Some email platforms restrict certain categories, so I confirm before building anything.</span></li>
+            <li><span><b>Keep everything portable.</b> Templates, flows, and DNS records are documented so a program can move quickly if an account is closed.</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="fine">This is how I work, not legal advice. Final claims should come from the client's approved list and their own counsel.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="ops">
+    <div class="wrap">
+      <div class="kicker">Day to day</div>
+      <h2>The unglamorous parts that protect results.</h2>
+      <div class="ops">
+        <div class="op"><h3>Before every send</h3><ul class="tick">
+          <li><span>Links and tracking tags checked</span></li>
+          <li><span>Merge tags have fallback text</span></li>
+          <li><span>Plain-text version included</span></li>
+          <li><span>Previewed on phone and desktop</span></li>
+          <li><span>Unsubscribe and address present</span></li>
+          <li><span>Claims checked against the approved list</span></li>
+        </ul></div>
+        <div class="op"><h3>Monthly report</h3><ul class="tick">
+          <li><span>Revenue from email, flows and campaigns separately</span></li>
+          <li><span>Clicks and orders per send</span></li>
+          <li><span>Opens, read with Apple Mail Privacy Protection in mind</span></li>
+          <li><span>Bounces, complaints, and unsubscribes</span></li>
+          <li><span>List growth and suppressed contacts</span></li>
+          <li><span>What to test next month</span></li>
+        </ul></div>
+        <div class="op"><h3>Backups</h3><ul class="tick">
+          <li><span>Scheduled exports of subscribers, segments, and suppression lists</span></li>
+          <li><span>A copy stored where the client controls it</span></li>
+          <li><span>Screenshots and notes of every automation</span></li>
+          <li><span>DNS records written down for a fast move</span></li>
+        </ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt" id="about">
+    <div class="wrap about">
+      <div>
+        <div class="kicker">About this portfolio</div>
+        <h2>Spec work, labelled as spec work.</h2>
+        <div class="contact" id="contact">
+          <a class="btn" id="mailBtn" href="#">Email Antonette</a>
+          <button class="copy" type="button" id="copyMail">Copy email address</button>
+        </div>
+        <p class="fine" id="mailText"></p>
+      </div>
+      <div class="disclosure">
+        <h3>What you are looking at</h3>
+        <p>Every email here is sample work for a fictional brand called Nova Labs. None of it was sent to real subscribers, and none of it shows real results.</p>
+        <p>The point is to show how I think about copy, flow structure, deliverability, and compliance in regulated categories. The layouts are HTML mockups of single-column, text-forward emails of the kind built in tools like MailerLite.</p>
+        <p>I wrote the copy to avoid medical, treatment, prevention, and guaranteed-result claims.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="year"></span> Antonette Juaban</span>
+    <span>Sample work. Nova Labs is a fictional brand.</span>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+var EMAIL = "chailynkim@gmail.com";
+var FROM = "Nova Labs <hello@novalabs.example>";
+
+var PROJECTS = [
+  {
+    id: "welcome", name: "Welcome flow", count: 3,
+    info: "Starts when a subscriber confirms their opt-in. Ends at first purchase.",
+    emails: [
+      {
+        when: "Sent immediately", short: "Day 0",
+        subject: "Welcome to Nova Labs", preview: "Here's what to expect from us.",
+        eyebrow: "Welcome", headline: "Welcome to Nova Labs.",
+        paras: [
+          "Thanks for joining us.",
+          "You'll hear from us about catalog updates, product documentation, and the occasional resource for your research work. We keep it short and we keep it plain.",
+          "We believe you should get clear information without hype or exaggerated promises. Expect about one email a week, and change that or unsubscribe whenever you like."
+        ],
+        cta: "Explore Nova Labs",
+        notes: {
+          copy: "Sets expectations in the first email: what they'll receive and how often. No offers yet, so the first message earns trust before it asks for anything.",
+          compliance: "No outcome claims anywhere. Consent is restated in the footer so the reason for the email is always visible.",
+          build: "Single column, 600px, web-safe fonts, real text for the button, alt text on images, and a plain-text version."
+        }
+      },
+      {
+        when: "2 days after email 1", short: "Day 2",
+        subject: "Start with the information that matters", preview: "A simpler way to explore our research catalog.",
+        eyebrow: "Education", headline: "Know what you're looking at.",
+        paras: [
+          "When you're evaluating research materials, the details matter.",
+          "Every listing in our catalog follows the same layout, so it's quick to compare:"
+        ],
+        extra: { type: "steps", items: ["Specifications, up front", "Documentation, linked where available", "Handling and storage, in plain language"] },
+        after: ["Take your time. Review what's there and decide based on your own research requirements."],
+        cta: "View the catalog",
+        notes: {
+          copy: "Positions the brand by how clearly it presents information, not by what the product does. The three-row list is scannable on a phone.",
+          compliance: "Describes the catalog layout only. No effects, benefits, or comparisons to other products.",
+          build: "Numbered rows are real table or block elements, not an image, so they stay readable with images turned off."
+        }
+      },
+      {
+        when: "3 days after email 2", short: "Day 5",
+        subject: "Before you place your first order", preview: "A few things worth checking first.",
+        eyebrow: "Next step", headline: "Good research starts with good information.",
+        paras: ["Before you order, we suggest a quick check:"],
+        extra: { type: "steps", items: ["Confirm the specifications match your requirements", "Read the available documentation", "Check the handling and shipping notes"] },
+        after: ["Questions? Reply to this email and a person will answer."],
+        cta: "Explore products",
+        secondary: "Reply with a question",
+        notes: {
+          copy: "A helpful checklist instead of a hard sell. The reply invitation lowers the barrier to a first conversation and shows a person is behind the inbox.",
+          compliance: "No countdowns, scarcity, or pressure language. Regulated categories get extra scrutiny, so the email stays calm.",
+          build: "Reply-to goes to a monitored inbox. First-order incentives would only be added if the client approves them."
+        }
+      }
+    ]
+  },
+  {
+    id: "cart", name: "Abandoned cart", count: 3,
+    info: "Starts when a cart is left behind. Ends as soon as an order is placed.",
+    emails: [
+      {
+        when: "1 hour after abandonment", short: "1 hour",
+        subject: "You left something behind", preview: "Your cart is still waiting.",
+        eyebrow: "Your cart", headline: "Still considering it?",
+        paras: ["You added an item to your cart but didn't finish checking out.", "No pressure. Your selection is saved if you'd like to continue."],
+        extra: { type: "cart" },
+        cta: "Return to cart",
+        notes: {
+          copy: "Short and calm. It reminds, it doesn't chase. The subject line states the fact without guilt.",
+          compliance: "Cart reminders are still commercial email, so the unsubscribe link and address stay in the footer.",
+          build: "Dynamic product block pulls the item name and image from the store. A fallback line shows if the data is missing."
+        }
+      },
+      {
+        when: "24 hours after abandonment", short: "24 hours",
+        subject: "Still on your mind?", preview: "Another look before you decide.",
+        eyebrow: "Your cart", headline: "Take another look.",
+        paras: ["Before you complete your order, review the product details and documentation to confirm everything meets your requirements.", "If something is unclear, reply to this email and we'll help."],
+        extra: { type: "cart" },
+        cta: "Review my cart",
+        notes: {
+          copy: "Handles the most common hesitation, which is uncertainty, by pointing to information and offering a human reply.",
+          compliance: "No discount, no implied benefit. Objection handling stays factual.",
+          build: "Same dynamic block as email 1 so the product is the visual anchor."
+        }
+      },
+      {
+        when: "2 days after email 2", short: "72 hours",
+        subject: "Your cart won't stay open forever", preview: "Complete your order when you're ready.",
+        eyebrow: "Your cart", headline: "Ready to continue?",
+        paras: ["Your saved cart is available for a limited time. If you've decided, you can return and complete your order.", "If now isn't the right time, you don't need to do anything."],
+        extra: { type: "cart" },
+        cta: "Complete order",
+        notes: {
+          copy: "A gentle last reminder that closes the loop and gives permission to ignore it.",
+          compliance: "The expiry is only mentioned if it is true in the store settings. Honest urgency only.",
+          build: "Exit condition checks for a purchase before every send, so nobody gets a reminder after ordering."
+        }
+      }
+    ]
+  },
+  {
+    id: "winback", name: "Winback", count: 2,
+    info: "Starts after 90 days with no opens, clicks, or orders. Ends in re-engagement or suppression.",
+    emails: [
+      {
+        when: "90 days of no engagement", short: "Day 0",
+        subject: "We haven't seen you in a while", preview: "Here's what's new at Nova Labs.",
+        eyebrow: "Checking in", headline: "Still interested?",
+        paras: ["It's been a while since your last visit.", "Since then we've reorganized the catalog so specifications and documentation are easier to find.", "If you'd like to keep hearing from us, you don't need to do anything. If not, you can unsubscribe in one click below."],
+        cta: "See what's new",
+        notes: {
+          copy: "Respectful, with a real reason to come back, and an easy way out. People who leave cleanly protect the sender's reputation.",
+          compliance: "Unsubscribe is offered openly instead of hidden.",
+          build: "Segment: no opens or clicks and no orders in 90 days. Apple Mail Privacy Protection can fake opens, so clicks and orders carry more weight."
+        }
+      },
+      {
+        when: "5 days after email 1", short: "Day 5",
+        subject: "Should we stop emailing you?", preview: "Tell us if you'd like to stay on the list.",
+        eyebrow: "Last check", headline: "Should we keep in touch?",
+        paras: ["We don't want to fill your inbox if it isn't useful.", "If you'd like to stay on the list, one click is all it takes. If we don't hear from you, we'll stop sending."],
+        cta: "Keep me subscribed",
+        secondary: "No thanks, unsubscribe",
+        notes: {
+          copy: "A clear yes-or-no. The honesty of the final message tends to earn more clicks than another promotion would.",
+          compliance: "Anyone who doesn't click is suppressed, so the list stays opted-in and engaged.",
+          build: "Automation tags clickers as re-engaged and moves everyone else to a suppression group after this email."
+        }
+      }
+    ]
+  },
+  {
+    id: "campaign", name: "Campaign", count: 1,
+    info: "One-off send. Goes first to the most engaged 60-day segment, then to the wider list.",
+    emails: [
+      {
+        when: "Scheduled send", short: "Campaign",
+        subject: "Something new has arrived at Nova Labs", preview: "Take a look at our latest addition.",
+        eyebrow: "New in the catalog", headline: "A new addition to the research catalog.",
+        paras: ["We've kept the presentation simple: clear specifications, linked documentation, and no unnecessary claims."],
+        extra: { type: "product" },
+        cta: "Explore the new arrival",
+        notes: {
+          copy: "One idea, one button. Alternate subject lines to test: \"New in the catalog\" against \"Documentation for our newest listing\".",
+          compliance: "The product block carries specifications supplied by the client. It never describes an effect.",
+          build: "Send to the engaged segment first, check bounces and complaints, then send to the rest. Compare clicks and orders, not just opens."
+        }
+      }
+    ]
+  }
+];
+
+(function () {
+  var state = { pid: "welcome", idx: 0, phone: false };
+  var $ = function (id) { return document.getElementById(id); };
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function project() { return PROJECTS.filter(function (p) { return p.id === state.pid; })[0]; }
+
+  function extraHtml(x) {
+    if (!x) return "";
+    if (x.type === "steps") {
+      return '<ol class="em-steps">' + x.items.map(function (t, i) { return "<li><b>" + (i + 1) + "</b><span>" + t + "</span></li>"; }).join("") + "</ol>";
+    }
+    if (x.type === "cart") {
+      return '<div class="em-card"><div class="em-img"></div><div><b>Item name from your cart</b><small>Quantity and price load from the store. If they are missing, a plain fallback line shows instead.</small></div></div>';
+    }
+    if (x.type === "product") {
+      return '<div class="em-card"><div class="em-img"></div><div><b>[Product name]</b><small>Specifications, format, and storage details appear here, supplied by the client.</small></div></div>';
+    }
+    return "";
+  }
+
+  function emailHtml(e) {
+    var paras = e.paras.map(function (p) { return "<p>" + p + "</p>"; }).join("");
+    var after = (e.after || []).map(function (p) { return "<p>" + p + "</p>"; }).join("");
+    var sec = e.secondary ? '<a class="em-sec" href="#" data-noop>' + e.secondary + "</a>" : "";
+    return '<div class="em">' +
+      '<div class="em-top"><span class="em-logo"><i></i>NOVA LABS</span></div>' +
+      '<div class="em-hero"><span class="em-eyebrow">' + e.eyebrow + "</span><h3>" + e.headline + "</h3></div>" +
+      '<div class="em-body">' + paras + extraHtml(e.extra) + after + '<a class="em-btn" href="#" data-noop>' + e.cta + "</a>" + sec + "</div>" +
+      '<div class="em-foot">' +
+        "<p>You're receiving this email because you signed up at novalabs.example.</p>" +
+        '<p><a href="#" data-noop>Unsubscribe</a> &nbsp;|&nbsp; <a href="#" data-noop>Manage preferences</a></p>' +
+        "<p>Nova Labs, 000 Example Street, Vancouver, BC (placeholder address)</p>" +
+        "<p>For research use only. Not for human or veterinary use.</p>" +
+      "</div></div>";
+  }
+
+  function esc(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+
+  function renderTabs() {
+    $("tabs").innerHTML = PROJECTS.map(function (p) {
+      return '<button class="tab" role="tab" type="button" data-id="' + p.id + '" aria-selected="' + (p.id === state.pid) + '">' + p.name + "<small>" + p.count + (p.count === 1 ? " email" : " emails") + "</small></button>";
+    }).join("");
+  }
+
+  function renderList() {
+    var p = project();
+    $("flowInfo").textContent = p.info;
+    $("inbox").innerHTML = p.emails.map(function (e, i) {
+      return '<button class="row" type="button" data-i="' + i + '" aria-current="' + (i === state.idx) + '">' +
+        '<span class="dot"></span><span class="row-main"><span class="row-top"><b>Nova Labs</b><span>' + e.short + "</span></span>" +
+        '<span class="row-subj">' + esc(e.subject) + '</span><span class="row-prev">' + esc(e.preview) + "</span></span></button>";
+    }).join("");
+  }
+
+  function renderPreview(animate) {
+    var e = project().emails[state.idx];
+    $("meta").innerHTML =
+      "<div>From: <span>" + esc(FROM) + "</span></div>" +
+      "<div>Subject: <span>" + esc(e.subject) + "</span></div>" +
+      "<div>Preview text: <span>" + esc(e.preview) + "</span></div>" +
+      "<div>Sends: <span>" + e.when + "</span></div>";
+    $("frame").innerHTML = emailHtml(e);
+    $("notes").innerHTML =
+      '<div class="note"><h4>Copy</h4><p>' + e.notes.copy + "</p></div>" +
+      '<div class="note"><h4>Compliance</h4><p>' + e.notes.compliance + "</p></div>" +
+      '<div class="note"><h4>Build</h4><p>' + e.notes.build + "</p></div>";
+    if (animate && !reduce) {
+      var f = $("frame"); f.classList.remove("fade"); void f.offsetWidth; f.classList.add("fade");
+    }
+  }
+
+  function select(pid, idx, scroll) {
+    state.pid = pid; state.idx = idx;
+    renderTabs(); renderList(); renderPreview(true);
+    if (scroll) $("work").scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+  }
+
+  $("tabs").addEventListener("click", function (ev) {
+    var b = ev.target.closest(".tab"); if (!b) return;
+    select(b.getAttribute("data-id"), 0, false);
+  });
+  $("inbox").addEventListener("click", function (ev) {
+    var b = ev.target.closest(".row"); if (!b) return;
+    select(state.pid, parseInt(b.getAttribute("data-i"), 10), false);
+  });
+  function setDevice(phone) {
+    state.phone = phone;
+    $("frame").classList.toggle("phone", phone);
+    $("dPhone").setAttribute("aria-pressed", String(phone));
+    $("dDesktop").setAttribute("aria-pressed", String(!phone));
+  }
+  $("dDesktop").addEventListener("click", function () { setDevice(false); });
+  $("dPhone").addEventListener("click", function () { setDevice(true); });
+  document.addEventListener("click", function (ev) {
+    if (ev.target.closest("[data-noop]")) ev.preventDefault();
+  });
+
+  var stack = $("stack");
+  stack.innerHTML = PROJECTS[0].emails.map(function (e, i) {
+    return '<button class="mini" type="button" data-i="' + i + '"><div class="mini-top"><b>Nova Labs</b><span>' + e.short + "</span></div><h3>" + esc(e.subject) + "</h3><p>" + esc(e.preview) + "</p></button>";
+  }).join("");
+  stack.addEventListener("click", function (ev) {
+    var b = ev.target.closest(".mini"); if (!b) return;
+    select("welcome", parseInt(b.getAttribute("data-i"), 10), true);
+  });
+
+  var toast = $("toast"), tt;
+  function showToast(m) {
+    toast.textContent = m; toast.classList.add("show");
+    clearTimeout(tt); tt = setTimeout(function () { toast.classList.remove("show"); }, 2400);
+  }
+  function copyText(text, msg) {
+    function fallback() {
+      var t = document.createElement("textarea");
+      t.value = text; t.style.position = "fixed"; t.style.opacity = "0";
+      document.body.appendChild(t); t.select();
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch (e) {}
+      t.remove();
+      showToast(ok ? msg : "Copy failed. Select the text and copy it.");
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { showToast(msg); }, fallback);
+    } else { fallback(); }
+  }
+  document.querySelectorAll("[data-copy]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      copyText($(b.getAttribute("data-copy")).textContent, "Copied.");
+    });
+  });
+  $("mailBtn").setAttribute("href", "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Email marketing portfolio"));
+  $("mailText").textContent = "Or write to " + EMAIL;
+  $("copyMail").addEventListener("click", function () { copyText(EMAIL, "Email address copied."); });
+  $("year").textContent = new Date().getFullYear();
+
+  select("welcome", 0, false);
+})();
+</script>
+</body>
+</html>
